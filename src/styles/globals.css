@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-stone-900 text-white;
+  }
+}
+
+@layer utilities {
+  .gradient-mask {
+    mask: linear-gradient(white 80%, transparent);
+  }
+}
