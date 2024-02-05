@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: alekshirsch.github.io
+Host: hirsch.codes
 
 # Sitemaps
-Sitemap: alekshirsch.github.io/sitemap.xml
+Sitemap: hirsch.codes/sitemap.xml
