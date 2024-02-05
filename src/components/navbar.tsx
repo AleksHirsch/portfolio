@@ -15,7 +15,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 z-40"
+      className="fixed right-0 top-0 z-40 rounded-bl-3xl"
       style={{
         background,
       }}

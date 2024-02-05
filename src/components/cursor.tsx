@@ -12,14 +12,18 @@ type TransformTemplateArgs = {
   rotate: string;
   scaleX: string;
   scaleY: string;
+  x: string;
+  y: string;
 };
 
 const transformTemplate = ({
   rotate,
   scaleX,
   scaleY,
+  x,
+  y,
 }: TransformTemplateArgs) => {
-  return `rotate(${rotate}) scaleX(${scaleX}) scaleY(${scaleY})`;
+  return `translateX(${x}) translateY(${y}) rotate(${rotate}) scaleX(${scaleX}) scaleY(${scaleY})`;
 };
 
 const smoothOptions = { damping: 20, stiffness: 300, mass: 0.5 };
@@ -140,17 +144,18 @@ export const Cursor = () => {
     <motion.div
       transformTemplate={transformTemplate}
       style={{
-        left: smoothMouse.x,
-        top: smoothMouse.y,
+        x: smoothMouse.x,
+        y: smoothMouse.y,
         scaleX: scale.x,
         scaleY: scale.y,
-        opacity: hasMoved ? 1 : 0,
       }}
+      initial={{ opacity: 0 }}
       animate={{
         width: cursorSize.width,
         height: cursorSize.height,
+        opacity: hasMoved ? 1 : 0,
       }}
-      className="pointer-events-none fixed z-50 h-8 w-8 rounded-full bg-yellow-100 mix-blend-difference transition-opacity touchscreen:hidden"
+      className="pointer-events-none fixed z-50 h-8 w-8 rounded-full bg-yellow-100 mix-blend-difference transition-opacity will-change-transform touchscreen:hidden"
       ref={cursor}
     />
   );
